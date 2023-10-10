@@ -61,7 +61,7 @@ public class Spaceship : MonoBehaviour
        
     }
 
-    private void reset_pos()
+    public void reset_pos()
     {
         transform.position = startline.transform.position;
     }

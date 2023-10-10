@@ -7,7 +7,6 @@ using UnityEngine.UIElements;
 
 public class hud_updates : MonoBehaviour
 {
-    public Button RetryBut;
     public GameObject Panel;
     public TMP_Text lifes;
     public TMP_Text lose;
@@ -21,7 +20,6 @@ public class hud_updates : MonoBehaviour
         Panel.SetActive(false);
         lose.enabled = false;
         win.enabled = false;
-        RetryBut.clicked += OnClick;
     }
 
     public void update_life_hud()
@@ -42,11 +40,13 @@ public class hud_updates : MonoBehaviour
         win.enabled = true;
     }
     
-    void OnClick()
+    public void RetryClick()
     {
         player.life = 2;
         win.enabled = false;
         lose.enabled = false;
+        update_life_hud();
+        player.reset_pos();
         Panel.SetActive(false);
     }
 }
